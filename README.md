@@ -6,7 +6,7 @@ Serverless script to keep your slack files hitting the free limit.
 
 1. `yarn install`
 2. Copy config.example.json to config.json
-3. Edit config.json as needed.
+3. [Edit config.json as needed.](https://github.com/Aubron/SlackOfAllTrades#configuration)
 4. [Set up AWS credentials in your environment](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 4. `yarn deploy`
 5. 🎉
