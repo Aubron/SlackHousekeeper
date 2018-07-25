@@ -1,0 +1,29 @@
+service:
+  name: SlackHousekeeper
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: ${file(./config.json):region}
+  stackName: ${file(./config.json):stackName}
+
+functions:
+  cleanFiles:
+    handler: index.cleaner
+    name: ${file(./config.json):lambdaName}
+    description: ${file(./config.json):lambdaDescription}
+    memory: ${file(./config.json):memory}
+    timeout: ${file(./config.json):timeout}
+    environment:
+      SLACK_TOKEN: ${file(./config.json):slackApiToken}
+      MAX_AGE: ${file(./config.json):maxAge}
+    events:
+      - schedule:
+          name: ${file(./config.json):lambdaName}
+          description: ${file(./config.json):lambdaDescription}
+          rate: rate(${file(./config.json):rate})
+          enabled: true
+
+plugins:
+  - serverless-offline
+  - serverless-offline-scheduler

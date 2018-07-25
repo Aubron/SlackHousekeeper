@@ -1,0 +1,21 @@
+{
+  "name": "SlackHousekeeper",
+  "version": "1.0.0",
+  "description": "Cleans your slack of old files, to prevent file limits.",
+  "main": "index.js",
+  "repository": "https://github.com/Aubron/SlackHousekeeper.git",
+  "author": "Aubron Wood",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/client": "^4.3.1"
+  },
+  "devDependencies": {
+    "serverless": "^1.28.0",
+    "serverless-offline": "^3.25.6",
+    "serverless-offline-scheduler": "^0.3.4"
+  },
+  "scripts": {
+    "start": "serverless offline start",
+    "deploy": "serverless deploy"
+  }
+}
