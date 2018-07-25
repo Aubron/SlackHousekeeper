@@ -1,0 +1,13 @@
+{
+  "slackApiToken": "xoxp-TOKEN_GOES_HERE",
+  "region": "us-east-2",
+  "stackName": "SlackOfAllTrades",
+  "lambdaName": "SlackOfAllTrades",
+  "lambdaDescription": "Recurring task to clean out old slack files.",
+  "memory": 1024,
+  "timeout": 300,
+  "rate": "1 day",
+  "maxAge": 30,
+  "sendNotifications": true,
+  "notificationChannel": "#general"
+}
