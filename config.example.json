@@ -7,7 +7,7 @@
   "memory": 1024,
   "timeout": 300,
   "rate": "1 day",
-  "maxAge": 30,
-  "sendNotifications": true,
+  "maxAge": "30",
+  "sendNotifications": "true",
   "notificationChannel": "#general"
 }

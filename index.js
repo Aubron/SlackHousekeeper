@@ -8,7 +8,7 @@ const web = new WebClient(token, {
 
 module.exports.cleaner = async (event, context, callback) => {
   let time = new Date();
-  time = (time.getTime() / 1000) - (60 * 60 * 24 * process.env.MAX_AGE)
+  time = (time.getTime() / 1000) - (60 * 60 * 24 * parseInt(process.env.MAX_AGE))
   let totalPages = 1;
   let files = [];
   for (let i = 1; i <= totalPages; i += 1) {
@@ -33,7 +33,7 @@ module.exports.cleaner = async (event, context, callback) => {
   await Promise.all(promises)
     .catch(console.error);
 
-  if (process.env.SEND_NOTIFICATIONS && fileCount > 0) {
+  if (process.env.SEND_NOTIFICATIONS === "true" && fileCount > 0) {
     let message = `Cleared ${fileCount} old files that were over ${process.env.MAX_AGE} days old. You're welcome.`
     web.chat.postMessage({ channel: process.env.NOTIFICATION_CHANNEL, text: message })
       .catch(console.error);
